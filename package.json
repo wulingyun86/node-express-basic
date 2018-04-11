@@ -1,0 +1,12 @@
+{
+    "name": "mymodel",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+      "dev": "node main.js"
+    },
+    "devDependencies": {
+      "body-parser": "~1.13.3"
+    }
+}

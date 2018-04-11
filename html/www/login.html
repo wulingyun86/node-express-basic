@@ -1,0 +1,21 @@
+{% extends './layout.html'%}
+{% block css %}
+<!-- <link rel="stylesheet" href="/static/css/login.css"> -->
+{% endblock %}
+{% block content %}
+ <h1>登录页面</h1>
+ <div class="form-group">
+    <label for="username">用户名:</label>
+    <input type="text" name="username" class="form-control">
+ </div>
+ <div class="form-group">
+     <label for="password">密码:</label>
+     <input type="password" name="password" class="form-control">
+ </div>
+ <button id="confirm" class="btn btn-success btn-block">登录</button>
+ <button class="btn btn-danger btn-block">取消</button>
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/login/login.js"></script>
+{% endblock %}

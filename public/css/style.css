@@ -1,0 +1,14 @@
+div:nth-child(1){
+    font-size: 50px;
+    color: red;
+}
+
+div:nth-child(3){
+    font-size: 80px;
+    color: blue;
+}
+
+div:nth-child(6){
+    font-size: 100px;
+    color: blueviolet;
+}

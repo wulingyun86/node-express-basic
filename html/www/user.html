@@ -1,0 +1,16 @@
+{% extends './layout.html'%}
+{% block css %}
+<!-- <link rel="stylesheet" href="/static/css/goods.css"> -->
+{% endblock %}
+{% block content %}
+   <h1>商品列表</h1>
+   {%for item in userList%}
+    <li>{{item.username}}</li>
+    <p>{{item.sign}}</p>
+    <hr/>
+   {%endfor%}
+{% endblock %}
+   
+{% block js %}
+<!-- <script src="/static/js/goods.js"></script> -->
+{% endblock %}

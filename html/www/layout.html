@@ -1,0 +1,27 @@
+<header>
+    <title>node</title>
+    <!-- css占位符主要用来显示其他页面的个性化的css文件，例如home.css about.css -->
+    {% block css%}
+    {% endblock %}
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</header>
+<!-- 所以页面公共的导航栏 -->
+<ul class="nav nav-tabs">
+    <li role="presentation" class={{homeActive}}><a href="/">首页</a></li>
+    <li role="presentation" class={{aboutActive}}><a href="/about">关于我们</a></li>
+    <li role="presentation" class={{goodsActive}}><a href="/user">用户列表</a></li>
+    <li role="presentation" class={{loginActive}}><a href="/login">登录</a></li>
+    <li role="presentation" class={{registerActive}}><a href="/register">注册</a></li>
+</ul>
+ <!-- content占位符主要用来显示其他页面的个性化的内容显示，不同的页面有不同的显示方式 -->
+ <div class="container">
+        {% block content%}
+        {% endblock %}
+ </div>
+
+ <!-- js占位符主要用来显示其他页面的个性化的js文件，例如home.js about.js -->
+{% block js%}
+{% endblock %}
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
