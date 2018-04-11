@@ -16,7 +16,7 @@ $('#confirm').on('click',function() {
         method:'POST',
         success:function(res) {
             if(res.status == 0) {
-                window.location.href="/goods"
+                window.location.href="/user"
             }
         },
         fail:function(err) {

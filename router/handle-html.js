@@ -14,11 +14,15 @@ router.get('/about',(req,res)=>{
 })
 
 router.get('/user',(req,res)=>{
-    const userList = findAll();
-    res.render('www/user',{
-        goodsActive:'active',
-        userList
-    });
+    findAll().then(
+        (userList)=>{
+            res.render('www/user',{
+                goodsActive:'active',
+                userList
+            });
+        }
+    );
+   
 })
 
 router.get('/login',(req,res)=>{
@@ -32,6 +36,20 @@ router.get('/register',(req,res)=>{
         registerActive:'active'
     });
 })
+
+
+router.get('/personInfo',(req,res)=>{
+    res.render('www/personInfo',{
+        loginActive:'active'
+    });
+})
+
+router.get('/logOut',(req,res)=>{
+    res.render('www/login',{
+        registerActive:'active'
+    });
+})
+
 
 
 module.exports = router;

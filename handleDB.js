@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var userSchema = ({
     username:String,
     password:String,
+    sign:String,
     age:Number,
     sex:{
         type:String,

@@ -1,9 +1,16 @@
 // 构建express服务器
 var express = require('express');
+var Cookies = require('cookies');
 var server = express();
 
 //处理访问路径的问题,相当于把/static 路径替换成了/public来访问静态文件
 server.use('/static',express.static(__dirname+'/public'));
+//设置cookie
+server.use((req,res,next)=>{
+    let cookies = new Cookies(req,res);
+    res.cookies = cookies;
+    next();
+})
 var handleHtml = require('./router/handle-html');
 var handleApi = require('./router/handle-api');
 server.use('/',handleHtml);

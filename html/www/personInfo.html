@@ -3,12 +3,13 @@
 <!-- <link rel="stylesheet" href="/static/css/goods.css"> -->
 {% endblock %}
 {% block content %}
-   <h1>用户列表</h1>
-   {%for item in userList%}
-    <li>{{item.username}}</li>
-    <p>{{item.sign}}</p>
-    <hr/>
-   {%endfor%}
+   <h1>个人中心</h1>
+    <p>用户名:</p>
+    <p>{{username}}</p>
+    <p>个性签名：</p>
+    <p>{{sign}}</p>
+
+
 {% endblock %}
    
 {% block js %}
