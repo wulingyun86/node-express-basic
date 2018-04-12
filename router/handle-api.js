@@ -1,5 +1,5 @@
 var express = require('express');
-const {addUser,isExistUser,findAll} = require('../handleUser');
+const {addUser,isExistUser,findAll} = require('../handleData/handleUser');
 var bodyParser = require('body-parser');
 const cookies = require('cookies');
 
@@ -69,6 +69,8 @@ router.use('/login',(req,res)=>{
     }
 )
 });
+
+
 
 
 module.exports = router;

@@ -8,7 +8,9 @@ var userSchema = ({
     sex:{
         type:String,
         default:'女'
-    }
+    },
+    identify:String,
+    phone:String
 })
 // 表的名字 user
 const UserModel = mongoose.model('user',userSchema);

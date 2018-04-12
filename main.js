@@ -5,7 +5,7 @@ var server = express();
 
 //处理访问路径的问题,相当于把/static 路径替换成了/public来访问静态文件
 server.use('/static',express.static(__dirname+'/public'));
-//设置cookie
+//设置cookie，必须传req res
 server.use((req,res,next)=>{
     let cookies = new Cookies(req,res);
     res.cookies = cookies;
@@ -45,7 +45,7 @@ mongoose.connect('mongodb://localhost:27017',(error)=>{
     server.listen(8080,'localhost',(req,res)=>{
         console.log('服务器启动 @ localhost:8080');
    })
-//    require('./handleDB');
+    require('./models/UserScore');
 })
 
 

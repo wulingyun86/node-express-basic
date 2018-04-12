@@ -17,6 +17,8 @@ $('#confirm').on('click',function() {
         success:function(res) {
             if(res.status == 0) {
                 window.location.href="/user"
+            } else if(res.status == 1) {
+                alert(res.message);
             }
         },
         fail:function(err) {
