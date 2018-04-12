@@ -46,6 +46,7 @@ mongoose.connect('mongodb://localhost:27017',(error)=>{
         console.log('服务器启动 @ localhost:8080');
    })
     require('./models/UserScore');
+    require('./models/UserInfo');
 })
 
 

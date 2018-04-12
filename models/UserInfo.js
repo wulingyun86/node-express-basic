@@ -87,4 +87,32 @@ const UserModel = mongoose.model('user',userSchema);
 //         console.log(res);
 //     }
 // })
+
+//分页显示数据
+let count;//总条数
+let page;//页数
+var skipVal = (page-1)*count;//跳过的数据条数
+var limitVal = count;
+UserModel.find().skip(4).limit(5).then(result=>{
+    console.log('--------分页显示数据-------');
+    console.log(result);
+})
+
+//查询总条数
+UserModel.count().then(num=>{
+    console.log(num)
+})
+
+//正则匹配
+let reg = new RegExp(/@qq/); //查询username包含 "@qq" 字符的名字,并且sing nul 或者'' 或者 undefined
+UserModel.find({username:{$regex:reg} , sign:null||''||undefined}).then(result=>{
+    console.info('-------------正则匹配查询-----------')
+    console.info(result);
+})
+
+//查询或条件
+UserModel.find({$or:[{username:{$regex:/xiao/}},{username:{$regex:/qq/}},{sex:'女'}]}).then(result=>{
+    console.info('--------匹配or表达式-------')
+    console.log(result);
+})
 module.exports = UserModel;

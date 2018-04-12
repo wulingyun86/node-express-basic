@@ -1,4 +1,5 @@
 var express = require('express');
+const url = require('url');
 const {findAll,findUser} = require('../handleData/handleUser');
 var router = new express.Router();
 router.get('/login',(req,res)=>{
@@ -53,11 +54,24 @@ router.get('/about',(req,res)=>{
 })
 
 router.get('/user',(req,res)=>{
-    findAll().then(
-        (userList)=>{
+    //获取查询参数
+     let query = url.parse(req.url,true).query;
+     //Number() 函数是将字符串转换为数字
+     let page = Number(query.page) || 1; // 默认1页
+     if(page<0) page = 1;
+     let count = Number(query.count) || 5; //默认5条数据
+    findAll(page,count).then(
+        ({userList,pages})=>{
+            let pageArr = [];//拆分页面的页数
+            for(let i =1; i<=pages; i++) {//页数不可以从0开始
+                pageArr.push(i);
+            }
             res.render('www/user',{
                 goodsActive:'active',
                 userList,
+                pageArr,
+                count,
+                page,
                 isLogin:res.isLogin
             });
         }

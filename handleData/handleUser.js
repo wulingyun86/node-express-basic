@@ -91,18 +91,28 @@ function findUser(_id) {
   })
 }
 
-function findAll() {
+//查询所有数据分页
+function findAll(page,count) {
     //这里不可以直接提供userList，否则外部可以操作内部的数据
     //这里实现深拷贝 Array.from(userList);
     //...arr 是数组扩展运算符
     //  return [...userList];
     //改写成promise
     return new Promise((resolve,reject)=>{
-        User.find().then(
-            lists=>{
-               resolve(lists);
-            }
-        )
+        //查询总页数
+        User.count().then(nums=>{
+            let pages = Math.ceil(nums/count);//总条数除每一页的条数，去除余数就是总页数
+            let skipVal = (page-1)*count;
+            User.find().skip(skipVal).limit(count).then(
+                userList=>{
+                   resolve(
+                       {userList:userList,
+                        pages:pages
+                       }
+                    );
+                }
+            )
+        })
     })
 }
 
